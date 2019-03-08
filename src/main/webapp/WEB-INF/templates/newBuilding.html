@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/resources/css/main.css">
+    <title>New Building Page</title>
+</head>
+<body>
+<header>
+    <a th:href="@{'/'}">Главная</a>
+    <a th:href="@{'/add'}">Добавить дом</a>
+    <hr/>
+</header>
+
+<div>
+    <label>list</label>
+    <div th:if="${not #lists.isEmpty(listOfHouseInNewComplex)}">
+        <table>
+            <thead>
+            <tr>
+                <th> nameOfComplex;</th>
+                <th> nameOfHouse;</th>
+                <th> floor;</th>
+                <th>  numberOfApartment;</th>
+                <th>  numberOfRoom;</th>
+                <th> square;</th>
+                <th>  pricePerSquare;</th>
+                <th> fullPrice;</th>
+                <th>  status;</th>
+                <th> edit </th>
+                <th> delete </th>
+                <th> request </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="house : ${listOfHouseInNewComplex}">
+                <td th:text="${house.nameOfComplex}">nameOfComplex</td>
+                <td th:text="${house.nameOfHouse}"></td>
+                <td th:text="${house.floor}"></td>
+                <td th:text="${house.numberOfApartment}"></td>
+                <td th:text="${house.numberOfRoom}"></td>
+                <td th:text="${house.square}"></td>
+                <td th:text="${house.pricePerSquare}"></td>
+                <td th:text="${house.fullPrice}"></td>
+                <td th:text="${house.status}"></td>
+                <td> <a th:href="@{'/edit/' + ${house.idHouse}}">edit</a></td>
+                <td> <a th:href="@{'/removeHouseFromNewComplex/' + ${house.idHouse}}">delete</a></td>
+                <div th:switch="${house.status}">
+                    <td th:case="${house.status.AVAILABLE}"> <a th:href="@{'/customer/' + ${house.idHouse}}">request</a></td>
+                </div>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr/>
+</body>
+</html>
