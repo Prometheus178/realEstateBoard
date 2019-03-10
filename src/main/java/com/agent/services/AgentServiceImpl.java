@@ -31,8 +31,7 @@ public class AgentServiceImpl implements AgentService{
 
     @Transactional
     public void deleteAgentByID(Agent agent) {
-        agentDAO.updateAgentByID(agent);
-
+        agentDAO.deleteAgentByID(agent);
     }
 
     @Transactional

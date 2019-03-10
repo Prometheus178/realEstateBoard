@@ -6,7 +6,6 @@ import com.house.services.HouseInNewComplexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +23,7 @@ public class HouseInNewComplexController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage(){
-        ModelAndView modelAndView = new ModelAndView("add");
+        ModelAndView modelAndView = new ModelAndView("addHouse");
         return modelAndView;
     }
 
@@ -75,7 +74,7 @@ public class HouseInNewComplexController {
     }
     @RequestMapping(value = "/edit/{idHouse}", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("idHouse") int idHouse) {
-        ModelAndView modelAndView = new ModelAndView("edit");
+        ModelAndView modelAndView = new ModelAndView("editHouse");
         HouseInNewComplex houseInNewComplex = service.getHouseByID(idHouse);
         modelAndView.addObject("houseInNewComplex", houseInNewComplex);
         return modelAndView;

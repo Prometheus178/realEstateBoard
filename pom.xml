@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
         <spring.version>4.1.1.RELEASE</spring.version>
+        <spring.security-version>3.2.5.RELEASE</spring.security-version>
         <hibernate.version>4.3.5.Final</hibernate.version>
         <org.aspectj-version>1.7.4</org.aspectj-version>
         <!--<jetty.skip>${skipTests}</jetty.skip>-->
@@ -58,6 +59,26 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${org.aspectj-version}</version>
+        </dependency>
+
+        <!-- Spring Security -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security-version}</version>
         </dependency>
 
         <!--render-->
@@ -142,6 +163,7 @@
             <artifactId>bootstrap</artifactId>
             <version>4.1.0</version>
         </dependency>
+
 
         <!--heroku-->
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->

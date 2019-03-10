@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.house.entities.HouseInNewComplex" table="HouseInNewComplex" schema="rieltor_company">
+        <id name="idHouse" column="idHouse"/>
+        <property name="floor" column="floor"/>
+        <property name="fullPrice" column="fullPrice"/>
+        <property name="nameOfComplex" column="nameOfComplex"/>
+        <property name="nameOfHouse" column="nameOfHouse"/>
+        <property name="numberOfApartment" column="numberOfApartment"/>
+        <property name="numberOfRoom" column="numberOfRoom"/>
+        <property name="pricePerSquare" column="pricePerSquare"/>
+        <property name="square" column="square"/>
+        <property name="status" column="status"/>
+    </class>
+</hibernate-mapping>

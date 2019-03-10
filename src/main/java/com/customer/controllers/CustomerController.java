@@ -24,7 +24,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/customer/{idHouse}", method = RequestMethod.GET)
     public ModelAndView customerPage(@PathVariable("idHouse") int idHouse) {
-        ModelAndView modelAndView = new ModelAndView("request");
+        ModelAndView modelAndView = new ModelAndView("order");
         modelAndView.addObject("idHouse", idHouse);
         return modelAndView;
     }
@@ -38,7 +38,7 @@ public class CustomerController {
                                         @RequestParam(value = "mortgage") boolean mortgage,
                                         @RequestParam(value = "agreeToDataProcessing") boolean agreeToDataProcessing,
                                         Customer customer) {
-        ModelAndView modelAndView = new ModelAndView("request");
+        ModelAndView modelAndView = new ModelAndView("order");
 
         HouseInNewComplex houseInNewComplex = houseService.getHouseByID(idHouse);
 

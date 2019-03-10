@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/resources/css/main.css">
+    <title>add poster</title>
+</head>
+<body>
+<a th:href="@{'/'}">Main</a>
+<label>add poster</label>
+<div>
+<form action="/addPoster" method="post">
+    <div>
+        private AccountType accountType;
+        <select name="accountType" id="accountType">
+            <option value="" selected disabled hidden>Выберите статус</option>
+            <option th:each="accountType:${T(com.realEstateBoard.entities.AccountType).values()}"
+                    th:value="${accountType}"
+                    th:text="${accountType.getValue()}">
+            </option>
+        </select>
+        private DealType dealType;
+        <select name="dealType" id="dealType">
+            <option th:each="dealType : ${T(com.realEstateBoard.entities.DealType).values()}"
+                    th:value="${dealType}"
+                    th:text="${dealType.getValue()}">
+            </option>
+        </select>
+        private RentType rentType;
+        <select name="rentType" id="rentType">
+            <option th:each="rentType : ${T(com.realEstateBoard.entities.RentType).values()}"
+                    th:value="${rentType}"
+                    th:text="${rentType.getValue()}">
+            </option>
+        </select>
+        private RealEstateType realEstateType;
+        <select name="realEstateType" id="realEstateType">
+            <option th:each="realEstateType : ${T(com.realEstateBoard.entities.RealEstateType).values()}"
+                    th:value="${realEstateType}"
+                    th:text="${realEstateType.getValue()}">
+            </option>
+        </select>
+        private Living living;
+        <select name="living" id="living">
+            <option th:each="living : ${T(com.realEstateBoard.entities.Living).values()}"
+                    th:value="${living}"
+                    th:text="${living.getValue()}">
+            </option>
+        </select>
+        private Commercial commercial;
+        <select name="commercial" id="commercial">
+            <option th:each="commercial : ${T(com.realEstateBoard.entities.Commercial).values()}"
+                    th:value="${commercial}"
+                    th:text="${commercial.getValue()}">
+            </option>
+        </select>
+        District district;
+        <select name="district" id="district">
+            <option th:each="district : ${T(com.realEstateBoard.entities.District).values()}"
+                    th:value="${district}"
+                    th:text="${district.getValue()}">
+            </option>
+        </select>
+        private String address; <input type="text" name="address" id="address">
+        private BuildingType buildingType;
+        <select name="buildingType" id="buildingType">
+            <option th:each="buildingType : ${T(com.realEstateBoard.entities.BuildingType).values()}"
+                    th:value="${buildingType}"
+                    th:text="${buildingType.getValue()}">
+            </option>
+        </select>
+        private String description; <input type="text" name="description" id="description">
+        private char photo; <input type="file" name="photo" id="photo">
+        private int price; <input type="number" name="price" id="price">
+        private int deposit; <input type="number" name="deposit" id="deposit">
+        private boolean communalPayments;<input type="checkbox" name="communalPayments" id="communalPayments">
+        private String cadastrNumber; <input type="text" name="cadastrNumber" id="cadastrNumber">
+        private NumberOfRooms numberOfRooms
+        <select name="numberOfRooms" id="numberOfRooms">
+            <option th:each="numberOfRooms : ${T(com.realEstateBoard.entities.NumberOfRooms).values()}"
+                    th:value="${numberOfRooms}"
+                    th:text="${numberOfRooms.getValue()}">
+            </option>
+        </select>
+        private double square;<input type="number" name="square" id="square">
+        private double squareOfLiving;<input type="number" name="squareOfLiving" id="squareOfLiving">
+        private double squareOfKitchen;<input type="number" name="squareOfKitchen" id="squareOfKitchen">
+        private int floor;<input type="number" name="floor" id="floor">
+        private Repairs repairs;
+        <select name="repairs" id="repairs">
+            <option th:each="repairs : ${T(com.realEstateBoard.entities.Repairs).values()}"
+                    th:value="${repairs}"
+                    th:text="${repairs.getValue()}">
+            </option>
+        </select>
+        private boolean animal;<input type="checkbox" name="animal" id="animal">
+        private boolean furniture;<input type="checkbox" name="furniture" id="furniture">
+        private boolean furnitureInTheKitchen;<input type="checkbox" name="furnitureInTheKitchen" id="furnitureInTheKitchen">
+        private boolean windowInside;<input type="checkbox" name="windowInside" id="windowInside">
+        private boolean windowOutside;<input type="checkbox" name="windowOutside" id="windowOutside">
+        private boolean balcony;<input type="checkbox" name="balcony" id="balcony">
+        private boolean loggia;<input type="checkbox" name="loggia" id="loggia">
+        private boolean fridge;<input type="checkbox" name="fridge" id="fridge">
+        private boolean dishwasher;<input type="checkbox" name="dishwasher" id="dishwasher">
+        private boolean washer;<input type="checkbox" name="washer" id="washer">
+        private boolean tv;<input type="checkbox" name="tv" id="tv">
+        private boolean phone;<input type="checkbox" name="phone" id="phone">
+        private boolean bath;<input type="checkbox" name="bath" id="bath">
+        private boolean shower;<input type="checkbox" name="shower" id="shower">
+        private boolean conditioner;<input type="checkbox" name="conditioner" id="conditioner">
+        private boolean internet;<input type="checkbox" name="internet" id="internet">
+        private boolean separateBathroom;<input type="checkbox" name="separateBathroom" id="separateBathroom">
+        private boolean combinedBathroom;<input type="checkbox" name="combinedBathroom" id="combinedBathroom">
+        private boolean lift;<input type="checkbox" name="lift" id="lift">
+        private String nameOfComplex;<input type="text" name="nameOfComplex" id="nameOfComplex">
+        private int yearOfConstruction;<input type="number" name="yearOfConstruction" id="yearOfConstruction">
+        private boolean ramp;<input type="checkbox" name="ramp" id="ramp">
+        private String title;<input type="text" name="title" id="title">
+
+    </div>
+    <input type="submit" value="Save"/>
+</form>
+    <a th:text="${messageTitle}"></a>
+</div>
+</body>
+</html>

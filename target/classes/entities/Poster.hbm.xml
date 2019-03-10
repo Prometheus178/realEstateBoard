@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.realEstateBoard.entities.Poster" table="Poster" schema="rieltor_company">
+        <id name="idPoster" column="idPoster"/>
+        <property name="accountType" column="accountType"/>
+        <property name="address" column="address"/>
+        <property name="animal" column="animal"/>
+        <property name="balcony" column="balcony"/>
+        <property name="bath" column="bath"/>
+        <property name="buildingType" column="buildingType"/>
+        <property name="cadastrNumber" column="cadastrNumber"/>
+        <property name="combinedBathroom" column="combinedBathroom"/>
+        <property name="commercial" column="commercial"/>
+        <property name="communalPayments" column="communalPayments"/>
+        <property name="conditioner" column="conditioner"/>
+        <property name="dateTime" column="dateTime"/>
+        <property name="dealType" column="dealType"/>
+        <property name="deposit" column="deposit"/>
+        <property name="description" column="description"/>
+        <property name="dishwasher" column="dishwasher"/>
+        <property name="district" column="district"/>
+        <property name="floor" column="floor"/>
+        <property name="fridge" column="fridge"/>
+        <property name="furniture" column="furniture"/>
+        <property name="furnitureInTheKitchen" column="furnitureInTheKitchen"/>
+        <property name="internet" column="internet"/>
+        <property name="lift" column="lift"/>
+        <property name="living" column="living"/>
+        <property name="loggia" column="loggia"/>
+        <property name="nameOfComplex" column="nameOfComplex"/>
+        <property name="numberOfRooms" column="numberOfRooms"/>
+        <property name="phone" column="phone"/>
+        <property name="photo" column="photo"/>
+        <property name="price" column="price"/>
+        <property name="ramp" column="ramp"/>
+        <property name="realEstateType" column="realEstateType"/>
+        <property name="rentType" column="rentType"/>
+        <property name="repairs" column="repairs"/>
+        <property name="separateBathroom" column="separateBathroom"/>
+        <property name="shower" column="shower"/>
+        <property name="square" column="square"/>
+        <property name="squareOfKitchen" column="squareOfKitchen"/>
+        <property name="squareOfLiving" column="squareOfLiving"/>
+        <property name="title" column="title"/>
+        <property name="tv" column="tv"/>
+        <property name="washer" column="washer"/>
+        <property name="windowInside" column="windowInside"/>
+        <property name="windowOutside" column="windowOutside"/>
+        <property name="yearOfConstruction" column="yearOfConstruction"/>
+    </class>
+</hibernate-mapping>
