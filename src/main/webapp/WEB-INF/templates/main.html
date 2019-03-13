@@ -1,157 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
- <title>MainPage</title>
-</head>
+<head th:replace="fragments/head :: head"></head>
+<title>Главная страница</title>
 <body>
 
-  
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div> <!-- .site-mobile-menu -->
-
-      <header>
-    <div class="site-navbar">
-        <div class="container py-1">
-          <div class="row align-items-center">
-            <div class="col-8 col-md-8 col-lg-4">
-              <h1 class=""><a href="main.html" class="h5 text-uppercase text-black"><strong>ЦАН<span class="text-danger"></span></strong></a></h1>
-            </div>
-            <div class="col-4 col-md-4 col-lg-8">
-              <nav class="site-navigation text-right text-md-right" role="navigation">
-
-                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-                <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li>
-                   <a th:href="@{'/'}">Главная</a>
-                  </li>
-                    <li><a th:href="@{'/newBuilding'}">Новостройки</a></li>
-                  <li><a th:href="@{'/add'}">Добавить дом</a></li>
-                  <li class="active"><a th:href="@{'/addPosterView'}">Добавить объявление</a></li>
-                  <li><a href="/j_spring_security_logout">Log out</a></li>
-                </ul>
-              </nav>
-            </div>
-        </div>
-        </div>
-      </div>    
-</header>
+<div th:replace="fragments/header :: header"></div>
 
 
-
-
-<hr/>
-      
- <div th:if="${not #lists.isEmpty(listOfPoster)}" class="site-section site-section-sm bg-light">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12">
-            <div class="site-section-title">
-              <h2>Новые обьявления</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div th:each="poster : ${listOfPoster}" class="col-md-6 col-lg-4 mb-4">
-            <a href="property-details.html" class="prop-entry d-block">
-              <figure>
-                <img src="/resources/images/img_1.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="prop-text">
-                <div class="inner">
-                  <span class="price rounded"><a th:text="${poster.title}"></a></span>
-                  <h3 class="title"><a th:text="${poster.title}"></a></h3>
-                  <p class="location"><a th:text="${poster.district}"></a></p>
-                </div>
-                <div class="prop-more-info">
-                  <div class="inner d-flex">
-                    <div class="col">
-                      <span>Площадь:</span>
-                      <strong><a th:text="${poster.square}"></a><sup>2</sup></strong>
-                    </div>
-                    <div class="col">
-                      <span>Комнат:</span>
-                      <strong ><a th:text="${poster.numberOfRooms}"></a></strong>
-                    </div>
+<section class="probootstrap-slider flexslider">
+  <div class="probootstrap-wrap-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="probootstrap-home-search probootstrap-animate">
+            <form action="" method="post">
+              <h2 class="heading">Найдите свой дом</h2>
+              <div class="probootstrap-field-group">
+                <div class="probootstrap-fields">
+                  <div class="search-category">
+                    <i class="icon-chevron-down"></i>
+                    <select name="#" id="1" class="form-control">
+                      <option value="">For Rent</option>
+                      <option value="">For Sale</option>
+                    </select>
+                  </div>
+                  <div class="search-category">
+                    <i class="icon-chevron-down"></i>
+                    <select name="#" id="2" class="form-control">
+                      <option value="">For Rent</option>
+                      <option value="">For Sale</option>
+                    </select>
                   </div>
                 </div>
+                <button class="btn btn-success" type="submit"><i class="icon-magnifying-glass t2"></i>Найти</button>
               </div>
-            </a>
+            </form>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <div class="site-pagination">
-              <a href="#" class="active">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <span>...</span>
-              <a href="#">10</a>
-            </div>
-          </div>  
-        </div>      
       </div>
     </div>
+  </div>
+  <li style="background-image: url(/resources/img/optimagr_tipanova_c1_170818_2.1510047426.jpg.1920x1080r.jpg);" class="overlay"></li>
+</section>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          
-      
-            <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Навигация</h3>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
-                  <li><a th:href="@{'/'}">Главная</a></li>
-                  <li><a href="#">Buy</a></li>
-                  <li><a href="#">Rent</a></li>
-                  <li><a th:href="@{'/newBuilding'}">Новостройки</a></li>
-                </ul>
-              </div>
-            
+<div class="clearfix visible-sm-block"></div>
+
+<section th:if="${not #lists.isEmpty(listOfPoster)}" class="probootstrap-section probootstrap-section-lighter">
+  <div class="container">
+    <div class="row heading">
+      <h2 class="mt0 mb50 text-center">Новые обьявления</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <div  th:each="poster : ${listOfPoster}" class="probootstrap-card probootstrap-listing">
+          <div class="probootstrap-card-media">
+            <img src="/resources/img/slider_1.jpg" class="img-responsive" >
+          </div>
+          <div class="probootstrap-card-text">
+            <h2 class="probootstrap-card-heading"><a th:text="${poster.title}"></a></h2>
+            <div class="probootstrap-listing-location">
+              <i class="icon-location2"></i> <a th:text="${poster.district}"></a>
             </div>
-
+            <div class="probootstrap-listing-category for-sale"><span><a th:text="${poster.rentType}"></a></span></div>
+            <div class="probootstrap-listing-price"><strong th:text="${poster.price}"></strong> / цена</div>
           </div>
+          <div class="probootstrap-card-extra">
+            <ul>
+              <li>
+                Площадь
+                <span><a th:text="${poster.square}"></a></span>
+              </li>
+              <li>
+                Комнат
+                <span><a th:text="${poster.numberOfRooms}"></a></span>
+              </li>
 
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Мы в сети</h3>
-
-                <div>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                </div>
-
-            
-
+            </ul>
           </div>
-          
-        </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-                by <a href="https://colorlib.com" target="_blank" >Sergei</a>
-           
-            </p>
-          </div>
-          
         </div>
       </div>
-    </footer>
+    </div>
   </div>
+</section>
+
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

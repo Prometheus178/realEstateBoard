@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/resources/css/main.css">
-    <title>MainPage</title>
-</head>
+<head th:replace="fragments/head :: head"></head>
 <body>
-<a th:href="@{'/'}">Main</a>
-<hr/>
-<div>
-    <label>edit House</label>
-    <form th:object="${houseInNewComplex}" th:action="@{'/updateHouseInNewComplex/' + ${houseInNewComplex.idHouse}}" , method="post" >
-        <div>
-            String nameOfComplex <input type="text" name="nameOfComplex" id="nameOfComplex" th:value="${houseInNewComplex.nameOfComplex}">
-            String nameOfHouse <input type="text" name="nameOfHouse" id="nameOfHouse" th:value="${houseInNewComplex.nameOfHouse}" >
-            int floor <input type="number" name="floor" id="floor" th:value="${houseInNewComplex.floor}">
-            int numberOfApartment <input type="number" name="numberOfApartment" id="numberOfApartment" th:value="${houseInNewComplex.numberOfApartment}">
-            int numberOfRoom <input type="number" name="numberOfRoom" id="numberOfRoom" th:value="${houseInNewComplex.numberOfRoom}">
-            double square <input type="number" name="square" id="square" th:value="${houseInNewComplex.square}">
-            int pricePerSquare <input type="number" name="pricePerSquare" id="pricePerSquare" th:value="${houseInNewComplex.pricePerSquare}">
-            int fullPrice <input type="number" name="fullPrice" id="fullPrice" th:value="${houseInNewComplex.fullPrice}">
-            Status status
-            <option th:value="${houseInNewComplex.status}"></option>
-            <select name="status" id="status">
-                <option th:each="status : ${T(com.house.entities.Status).values()}"
-                        th:value="${status}"
-                        th:text="${status.getValue()}">
-                </option>
-            </select>
-        </div>
-        <input type="submit" value="Save"/>
-        <input type="reset" value="Reset"/>
-    </form>
-</div>
-<hr/>
+<div th:replace="fragments/header :: header"></div>
+<section class="probootstrap-section probootstrap-section-lighter">
+    <div>
+        <label>edit House</label>
+        <form th:object="${houseInNewComplex}" th:action="@{'/updateHouseInNewComplex/' + ${houseInNewComplex.idHouse}}" , method="post" >
+            <div>
+                String nameOfComplex <input type="text" name="nameOfComplex" id="nameOfComplex" th:value="${houseInNewComplex.nameOfComplex}">
+                String nameOfHouse <input type="text" name="nameOfHouse" id="nameOfHouse" th:value="${houseInNewComplex.nameOfHouse}" >
+                int floor <input type="number" name="floor" id="floor" th:value="${houseInNewComplex.floor}">
+                int numberOfApartment <input type="number" name="numberOfApartment" id="numberOfApartment" th:value="${houseInNewComplex.numberOfApartment}">
+                int numberOfRoom <input type="number" name="numberOfRoom" id="numberOfRoom" th:value="${houseInNewComplex.numberOfRoom}">
+                double square <input type="number" name="square" id="square" th:value="${houseInNewComplex.square}">
+                int pricePerSquare <input type="number" name="pricePerSquare" id="pricePerSquare" th:value="${houseInNewComplex.pricePerSquare}">
+                int fullPrice <input type="number" name="fullPrice" id="fullPrice" th:value="${houseInNewComplex.fullPrice}">
+                Status status
+                <option th:value="${houseInNewComplex.status}"></option>
+                <select name="status" id="status">
+                    <option th:each="status : ${T(com.house.entities.Status).values()}"
+                            th:value="${status}"
+                            th:text="${status.getValue()}">
+                    </option>
+                </select>
+            </div>
+            <input type="submit" value="Save"/>
+            <input type="reset" value="Reset"/>
+        </form>
+    </div>
+</section>
+
+
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
     <link rel="stylesheet" type="text/css" media="all" href="/resources/css/main.css">
+
     <title>Login Page</title>
 </head>
 <body>
 
 <div>
-    <form name="form_login" action="/j_spring_security_check" method="post">
+    <form th:action="@{/j_spring_security_check}" method="post">
         <table>
             <tr>
                 <td>User:</td>
