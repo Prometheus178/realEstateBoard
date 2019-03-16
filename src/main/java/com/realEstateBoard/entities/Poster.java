@@ -5,13 +5,9 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "Poster")
+
 
 public class Poster {
-    @Id
-    @Column(name = "idPoster")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int idPoster;
     private LocalDateTime dateTime;
     private AccountType accountType;
