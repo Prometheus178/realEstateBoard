@@ -531,7 +531,6 @@ public class Poster {
                 ", address='" + address + '\'' +
                 ", buildingType=" + buildingType +
                 ", description='" + description + '\'' +
-                ", photo=" + Arrays.toString(photo) +
                 ", price=" + price +
                 ", deposit=" + deposit +
                 ", communalPayments=" + communalPayments +

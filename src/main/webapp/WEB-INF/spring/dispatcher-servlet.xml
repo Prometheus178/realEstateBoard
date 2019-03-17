@@ -5,6 +5,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:webflow="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
         http://www.springframework.org/schema/beans
@@ -15,7 +16,7 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <import resource="mysql-datasource.xml"/>
-
+    <import resource="webFlow-config.xml"/>
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
     <context:component-scan base-package="com"/>
@@ -23,29 +24,15 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!-- Thymeleaf View Resolver - implementation of Spring's ViewResolver interface -->
-    <bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
-        <property name="templateEngine" ref="templateEngine"/>
-        <property name="characterEncoding" value="UTF-8"/>
-    </bean>
 
-    <!-- Thymeleaf Template Engine (Spring4-specific version) -->
-    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="templateResolvers">
-            <set>
-                <ref bean="templateResolver"/>
-            </set>
-        </property>
-        <property name="enableSpringELCompiler" value="true"/>
-    </bean>
 
-    <!-- Thymeleaf Template Resolver -->
-    <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
-        <property name="prefix" value="/WEB-INF/templates/"/>
-        <property name="suffix" value=".html"/>
-        <property name="templateMode" value="HTML5"/>
-        <property name="cacheable" value="false"/>
-    </bean>
+    <!-- Map paths directly to view names without controller processing. Use
+        the view-name attribute if necessary: by convention the view name equals
+        the path without the leading slash -->
+
+
+
+
 
     <!--&lt;!&ndash;Updated Service context File&ndash;&gt;-->
     <!--<bean id="propertyConfigurerDB" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
@@ -78,14 +65,14 @@
 
 
     <bean id="hibernate4AnnotatedSessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:hibernate.cfg.xml"  />
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 

@@ -131,6 +131,8 @@ public class RealEstateBoardController {
     public ModelAndView listOfPoster(){
         ModelAndView modelAndView = new ModelAndView("main");
         modelAndView.addObject("listOfPoster", service.listOfPoster());
+//        String image = "";
+//        modelAndView.addObject("image",)
         return modelAndView;
     }
 

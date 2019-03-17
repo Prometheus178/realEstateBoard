@@ -12,16 +12,16 @@
 <div class="clearfix visible-sm-block"></div>
 
 <section  th:if="${not #lists.isEmpty(listOfPoster)}" class="probootstrap-section probootstrap-section-lighter">
-  <div class="container">
+  <div id="poster" class="container" >
     <div class="row heading">
       <h2 class="mt0 mb50 text-center">Новые обьявления</h2>
     </div>
     <div class="row">
       <div class="col-md-4 col-sm-6">
-          <div th:href="@{'/add'}">
+          <a th:href="@{'/add'}">
               <div  th:each="poster : ${listOfPoster}" class="probootstrap-card probootstrap-listing">
                   <div class="probootstrap-card-media">
-                      <img src="/resources/img/slider_1.jpg" class="img-responsive" >
+                      <img th:src="@{'data:image/jpeg;base64,'+${poster.photo}}"  class="img-responsive"/>
                   </div>
                   <div class="probootstrap-card-text">
                       <h2 class="probootstrap-card-heading"><a th:text="${poster.title}"></a></h2>
@@ -45,7 +45,7 @@
                       </ul>
                   </div>
               </div>
-          </div>
+          </a>
       </div>
     </div>
   </div>
