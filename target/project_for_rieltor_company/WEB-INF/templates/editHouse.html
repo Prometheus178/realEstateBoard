@@ -4,10 +4,11 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 <section class="probootstrap-section probootstrap-section-lighter">
-    <div>
+
+    <div class="container">
         <label>edit House</label>
         <form th:object="${houseInNewComplex}" th:action="@{'/updateHouseInNewComplex/' + ${houseInNewComplex.idHouse}}" , method="post" >
-            <div>
+            <div class="form-group">
                 String nameOfComplex <input type="text" name="nameOfComplex" id="nameOfComplex" th:value="${houseInNewComplex.nameOfComplex}">
                 String nameOfHouse <input type="text" name="nameOfHouse" id="nameOfHouse" th:value="${houseInNewComplex.nameOfHouse}" >
                 int floor <input type="number" name="floor" id="floor" th:value="${houseInNewComplex.floor}">

@@ -1,10 +1,12 @@
 package com.realEstateBoard.entities;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-@Entity
+
 
 
 public class Poster {
@@ -54,6 +56,8 @@ public class Poster {
     private int yearOfConstruction;
     private boolean ramp;
     private String title;
+
+
 
     public Poster(){}
 
@@ -516,55 +520,5 @@ public class Poster {
         this.title = title;
     }
 
-    @Override
-    public String toString() {
-        return "Poster{" +
-                "idPoster=" + idPoster +
-                ", dateTime=" + dateTime +
-                ", accountType=" + accountType +
-                ", dealType=" + dealType +
-                ", rentType=" + rentType +
-                ", realEstateType=" + realEstateType +
-                ", living=" + living +
-                ", commercial=" + commercial +
-                ", district=" + district +
-                ", address='" + address + '\'' +
-                ", buildingType=" + buildingType +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", deposit=" + deposit +
-                ", communalPayments=" + communalPayments +
-                ", cadastrNumber='" + cadastrNumber + '\'' +
-                ", numberOfRooms=" + numberOfRooms +
-                ", square=" + square +
-                ", squareOfLiving=" + squareOfLiving +
-                ", squareOfKitchen=" + squareOfKitchen +
-                ", floor=" + floor +
-                ", repairs=" + repairs +
-                ", animal=" + animal +
-                ", furniture=" + furniture +
-                ", furnitureInTheKitchen=" + furnitureInTheKitchen +
-                ", windowInside=" + windowInside +
-                ", windowOutside=" + windowOutside +
-                ", balcony=" + balcony +
-                ", loggia=" + loggia +
-                ", fridge=" + fridge +
-                ", dishwasher=" + dishwasher +
-                ", washer=" + washer +
-                ", tv=" + tv +
-                ", phone=" + phone +
-                ", bath=" + bath +
-                ", shower=" + shower +
-                ", conditioner=" + conditioner +
-                ", internet=" + internet +
-                ", separateBathroom=" + separateBathroom +
-                ", combinedBathroom=" + combinedBathroom +
-                ", lift=" + lift +
-                ", nameOfComplex='" + nameOfComplex + '\'' +
-                ", yearOfConstruction=" + yearOfConstruction +
-                ", ramp=" + ramp +
-                ", title='" + title + '\'' +
-                '}';
-    }
 
 }

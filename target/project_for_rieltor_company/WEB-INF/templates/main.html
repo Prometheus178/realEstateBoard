@@ -7,7 +7,8 @@
 <div th:replace="fragments/header :: header"></div>
 
 
-<div th:replace="fragments/search :: search"></div>
+
+
 
 <div class="clearfix visible-sm-block"></div>
 
@@ -18,34 +19,39 @@
     </div>
     <div class="row">
       <div class="col-md-4 col-sm-6">
-          <a th:href="@{'/add'}">
+          <div >
               <div  th:each="poster : ${listOfPoster}" class="probootstrap-card probootstrap-listing">
-                  <div class="probootstrap-card-media">
-                      <img th:src="@{'data:image/jpeg;base64,'+${poster.photo}}"  class="img-responsive"/>
-                  </div>
-                  <div class="probootstrap-card-text">
-                      <h2 class="probootstrap-card-heading"><a th:text="${poster.title}"></a></h2>
-                      <div class="probootstrap-listing-location">
-                          <i class="icon-location2"></i> <a th:text="${poster.district}"></a>
-                      </div>
-                      <div class="probootstrap-listing-category for-sale"><span><a th:text="${poster.rentType}"></a></span></div>
-                      <div class="probootstrap-listing-price"><strong th:text="${poster.price}"></strong> / цена</div>
-                  </div>
-                  <div class="probootstrap-card-extra">
-                      <ul>
-                          <li>
-                              Площадь
-                              <span><a th:text="${poster.square}"></a></span>
-                          </li>
-                          <li>
-                              Комнат
-                              <span><a th:text="${poster.numberOfRooms}"></a></span>
-                          </li>
+                  <div >
 
-                      </ul>
+                      <div class="probootstrap-card-media">
+                          <a th:href="@{'/poster/' + ${poster.idPoster}}">Подробнее</a>
+                          <img  th:src="@{'/posterImage?idPoster='+ ${poster.idPoster}}"/>
+                      </div>
+                      <div class="probootstrap-card-text">
+                          <h2 class="probootstrap-card-heading"><a th:text="${poster.title}"></a></h2>
+                          <div class="probootstrap-listing-location">
+                              <i class="icon-location2"></i> <a th:text="${poster.district}"></a>
+                          </div>
+                          <div class="probootstrap-listing-category for-sale"><span><a th:text="${poster.rentType}"></a></span></div>
+                          <div class="probootstrap-listing-price"><strong th:text="${poster.price}"></strong> / цена</div>
+                      </div>
+                      <div class="probootstrap-card-extra">
+                          <ul>
+                              <li>
+                                  Площадь
+                                  <span><a th:text="${poster.square}"></a></span>
+                              </li>
+                              <li>
+                                  Комнат
+                                  <span><a th:text="${poster.numberOfRooms}"></a></span>
+                              </li>
+
+                          </ul>
+                      </div>
                   </div>
+
               </div>
-          </a>
+          </div>
       </div>
     </div>
   </div>

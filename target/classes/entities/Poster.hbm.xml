@@ -51,5 +51,6 @@
         <property name="windowInside" column="windowInside"/>
         <property name="windowOutside" column="windowOutside"/>
         <property name="yearOfConstruction" column="yearOfConstruction"/>
+
     </class>
 </hibernate-mapping>

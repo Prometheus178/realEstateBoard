@@ -19,7 +19,12 @@ public class HouseInNewComplexController {
     @Autowired
     private HouseInNewComplexService service;
 
-
+    @RequestMapping(value = "/newBuildingAdmin", method = RequestMethod.GET)
+    public ModelAndView newBuildingAdmin(){
+        ModelAndView modelAndView = new ModelAndView("admin-pages/index");
+        modelAndView.addObject("listOfHouseInNewComplex", service.listOfHouseInNewComplex());
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage(){
